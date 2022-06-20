@@ -17,14 +17,14 @@ export default function Livro() {
   async function handleSubmit(e) {
     e.preventDefault()
     const data = {
-      nome: formulario.nome,
-      autor: formulario.autor,
+      titulo: formulario.titulo,
+      autorId: formulario.autor,
       editora: formulario.editora,
-      datapublicacao: formulario.data,
+      data_publicacao: formulario.data,
       preco: formulario.preco,
     }
     console.log(data)
-    const response = await api.post('/inserirlivros', data)
+    const response = await api.post('/livros', data)
     console.log(response);
     router.push('/livros')
   }
@@ -56,8 +56,8 @@ export default function Livro() {
           </div>
             
           <div className={styles.nome}>
-            <label for="nome">Nome completo:</label><br/>
-            <input className={styles.caixa} type="text" placeholder="Digite o nome do livro" id="nome" onChange={handleInputChange} value = {formulario.nome || ''} />
+            <label for="titulo">Titulo:</label><br/>
+            <input className={styles.caixa} type="text" placeholder="Digite o nome do livro" id="titulo" onChange={handleInputChange} value = {formulario.titulo || ''} />
           </div>
     
           <div className={styles.autor}>

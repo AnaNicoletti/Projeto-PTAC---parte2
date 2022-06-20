@@ -28,7 +28,7 @@ export default function livro_l({livro}) {
         livro.map(listagem => {
           return(
             <div key={listagem.id}>
-              <ListaLivro nome={listagem.nome} editora={listagem.editora} datapublicacao={listagem.datapublicacao} preco={listagem.preco} id={listagem.id}/>
+              <ListaLivro titulo={listagem.titulo} editora={listagem.editora} data_publicacao={listagem.data_publicacao} preco={listagem.preco} id={listagem.id}/>
             </div>
           )
         })

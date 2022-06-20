@@ -4,7 +4,7 @@ import ListaAutor from '../components/ListaAutor.js'
 import Head from 'next/head'
 
 export async function getServerSideProps() {
-  const response = await api.get ('/')
+  const response = await api.get ('/autores')
     console.log(response.data);
   const autor = response.data;
   return {
@@ -28,13 +28,13 @@ export default function autor_l({autor}) {
         autor.map(listage => {
           return(
             <div key={listage.id}>
-              <ListaAutor nome={listage.nome} sobrenome={listage.sobrenome} data_de_nascimento={listage.data_de_nascimento} id={listage.id}/>
+              <ListaAutor nome={listage.nome} sobrenome={listage.sobrenome} data_nascimento={listage.data_nascimento} id={listage.id}/>
             </div>
           )
         })
       }
     </div>
-      <footer class="footer">
+      <footer class="footer1">
           Todos os direitos reservados
       </footer>
     </div>

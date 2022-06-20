@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import {useState} from 'react'
 import {useRouter} from 'next/router'
 import api from '../pages/api/api'
+import axios from 'axios'
 
 export default function Autor() {
   const [formulario , setFormulario] = useState ({})
@@ -19,10 +20,10 @@ export default function Autor() {
     const data = {
       nome: formulario.nome,
       sobrenome: formulario.sobrenome,
-      datanascimento: formulario.data,
+      data_nascimento: formulario.data,
     }
     console.log(data)
-    const response = await api.post('/inserir', data)
+    const response = await axios.post('https://PTAS-Projeto.ananicoletti.repl.co/autores', data)
     console.log(response);
     router.push('/autores')
   }
@@ -53,7 +54,7 @@ export default function Autor() {
           </div>
             
           <div className={styles.nome}>
-            <label for="nome">Nome completo:</label><br/>
+            <label for="nome">Nome:</label><br/>
             <input className={styles.caixa} type="text" placeholder="Digite o nome do autor" id="nome" onChange={handleInputChange} value = {formulario.nome || ''} />
           </div>
     
